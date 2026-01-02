@@ -6,6 +6,7 @@ import { serve } from "inngest/express";
 import { inngest, functions } from './inngest/index.js';
 import { clerkMiddleware } from '@clerk/express'
 import userRouter from './routes/userRoutes.js';
+import postRouter from './routes/postRoutes.js';
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use(clerkMiddleware());
 app.get('/', (req,res)=> { res.send('Server is Live')});
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use('/api/user', userRouter);
+app.use('/api/post', postRouter);
 
 app.listen(PORT, ()=> {console.log("Server is Listening on port", PORT)})
