@@ -4,6 +4,7 @@ import sample_profile from './sample_profile.jpg'
 import bgImage from './bgImage.png'
 import group_users from './group_users.png'
 import download from './download.png'
+import logonew from './Gemini_Generated_Image_511vzu511vzu511v.png'
 import { Home, MessageCircle, Search, UserIcon, Users } from 'lucide-react'
 import sponsored_img from './sponsored_img.png'
 
@@ -14,7 +15,9 @@ export const assets = {
     bgImage,
     group_users,
     sponsored_img,
-    download
+    download,
+    logonew
+
 }
 
 export const menuItemsData = [
