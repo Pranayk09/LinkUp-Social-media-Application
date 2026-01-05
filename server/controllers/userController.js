@@ -232,14 +232,14 @@ export const getUserConnections = async(req,res)=>{
     try {
         const {userId} = await req.auth();
 
-        const user = await User.findById(userId).populate('connections followers following ');
+        const user = await User.findById(userId).populate('connections followers following');
 
         const connections = user.connections
         const followers = user.followers
         const following = user.following
 
 
-        const pendingConnections = (await Connection.find({to_user_id: userId, status: 'pending'}).populate('from_user_id')).map(connection=> from_user_id);
+        const pendingConnections = (await Connection.find({to_user_id: userId, status: 'pending'}).populate('from_user_id')).map(connection=> connection.from_user_id);
 
         return res.json({success:true, connections, followers, following, pendingConnections});
 

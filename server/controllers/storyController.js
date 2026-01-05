@@ -14,17 +14,19 @@ export const addUserStory = async(req, res) =>{
         let media_url = '';
 
         // Upload media to imagekit
-        if(media_type === 'image' || media_type === 'video'){
+        if((media_type === 'image' || media_type === 'video') && media){
             const fileBuffer = fs.readFileSync(media.path);
-            const response = imagekit.upload({
+
+            const response = await imagekit.upload({
                 file: fileBuffer,
                 fileName: media.originalname,
             })
+
             media_url = response.url;
         }
 
         //  create story
-        const story = Story.create({
+        const story = await Story.create({
             user: userId,
             content,
             media_url,
@@ -59,7 +61,7 @@ export const getStories = async(req, res) =>{
         const userIds = [ userId, ...user.connections, ...user.following];
 
         const stories = await Story.find({
-            $in: {userIds}
+           user: { $in: userIds}
         }).populate('user').sort({ createdAt: -1});
 
         return res.json({success:true, stories});
