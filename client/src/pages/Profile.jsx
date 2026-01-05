@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { dummyPostsData, dummyUserData } from '../assets/assets';
 import Loading from '../components/Loading';
 import UserProfileInfo from '../components/UserProfileInfo';
-import POstCard from '../components/POstCard';
+import PostCard from '../components/PostCard';
 import moment from 'moment';
 import ProfileModal from '../components/ProfileModal';
 import {useAuth} from '@clerk/clerk-react'
@@ -84,7 +84,7 @@ const Profile = () => {
           {
             activeTab === 'posts' && (
               <div className='mt-6 flex flex-col items-center gap-6'>
-                {posts.map((post)=> <POstCard key={post._id}  post={post}/>
+                {posts.map((post)=> <PostCard key={post._id}  post={post}/>
               )}
               </div>
             )

@@ -8,7 +8,7 @@ import { useAuth } from '@clerk/clerk-react'
 import api from '../api/axios'
 import toast from 'react-hot-toast'
 
-const POstCard = ({post}) => {
+const PostCard = ({post}) => {
 
     const postWithHashtags = post.content.replace(/(#\w+)/g, '<span class="text-indigo-600">$1</span>')
 
@@ -97,4 +97,4 @@ const POstCard = ({post}) => {
   )
 }
 
-export default POstCard
+export default PostCard
