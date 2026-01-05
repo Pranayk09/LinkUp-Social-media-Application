@@ -10,7 +10,7 @@ const Login = () => {
 
         {/* Left Side  */}
        <div  className='flex-1 flex flex-col items-start justify-between p-6 md:p-10 lg:pl-40 '>
-        <img src={assets.logo} className='h-12 object-contain'  alt="" />
+        <img src={assets.logonew} className='h-12 object-contain'  alt="" />
         <div>
           <div className='flex items-center gap-3 mb-4 max-md:mt-10'>
             <img src={assets.group_users} className='h-8 md:h-10' alt="" />
